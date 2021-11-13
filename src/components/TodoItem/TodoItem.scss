@@ -1,0 +1,17 @@
+$border-color: #333;
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  border: 2px solid $border-color;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 5px;
+  span {
+    font-size: 16px;
+  }
+}

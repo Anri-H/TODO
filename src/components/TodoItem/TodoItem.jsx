@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { edit, complete, remove } from "../../store/features/todo/todoSlice";
 import { Button } from "../Button/Button";
 import Input from "../Input/Input";
+import "./TodoItem.scss";
 
 export const TodoItem = React.memo(({ todo, i }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -27,9 +28,8 @@ export const TodoItem = React.memo(({ todo, i }) => {
 
   const handleDelete = useCallback(() => dispatch(remove(i)), []);
 
-
   return (
-    <li>
+    <li className="main">
       <Input
         type="checkbox"
         checked={todo.completed}

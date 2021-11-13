@@ -1,0 +1,10 @@
+$gray-color: #333;
+
+.todo {
+  .title {
+    color: $gray-color;
+  }
+  .list {
+    width: 500px;
+  }
+}

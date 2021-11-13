@@ -1,0 +1,20 @@
+$bg-color: #fff;
+$border-color: #333;
+$txt-color: #888;
+$focus-color: #333;
+
+.input {
+  font-size: 15px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid $border-color;
+  background: $bg-color;
+  border-radius: 6px;
+  color: $txt-color;
+  outline: none;
+
+  :focus {
+    color: $focus-color;
+  }
+}
