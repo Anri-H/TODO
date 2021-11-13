@@ -20,7 +20,7 @@ export const TodoItem = React.memo(({ todo, i }) => {
       dispatch(edit({ name: edited, i }));
       setIsEdit(false);
     } else setIsEdit(true);
-  }, [isEdit]);
+  }, []);
 
   const handleChangeEdit = ({ target }) => setEdited(target.value);
 
