@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../store/features/todo/todoSlice";
-import Button from "../Button/Button";
+import {Button }from "../Button/Button";
 import Input from "../Input/Input";
 
-export default function Add() {
+export const Add = React.memo(() => {
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState("");
+
+  const handleChangeNewTodo = ({ target }) => setNewTodo(target.value);
 
   const handleAdd = () => {
     dispatch(addTodo(newTodo));
     setNewTodo("");
   };
-
-  const handleChangeNewTodo = ({ target }) => setNewTodo(target.value);
 
   return (
     <div>
@@ -21,4 +21,4 @@ export default function Add() {
       <Button text="Add" disabled={!newTodo} onClick={handleAdd} />
     </div>
   );
-}
+});
