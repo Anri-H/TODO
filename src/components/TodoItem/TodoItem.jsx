@@ -38,7 +38,7 @@ export const TodoItem = React.memo(({ todo, i }) => {
       {isEdit ? (
         <Input type="text" value={edited} onChange={handleChangeEdit} />
       ) : (
-        <span>{todo.name}</span>
+        <span className={todo.completed && "checked"}>{todo.name}</span>
       )}
       <div>
         <Button text={isEdit ? "Save" : "Edit"} onClick={handleEdit} />
