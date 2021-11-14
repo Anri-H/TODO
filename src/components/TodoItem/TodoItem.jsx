@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { edit, complete, remove } from "../../store/features/todo/todoSlice";
 import { Button } from "../Button/Button";
@@ -15,21 +15,21 @@ export const TodoItem = React.memo(({ todo, i }) => {
     setEdited(todo.name);
   }, [todo]);
 
-  const handleEdit = () => {
+  const handleEdit = useCallback(() => {
     if (isEdit) {
       dispatch(edit({ name: edited, i }));
       setIsEdit(false);
     } else setIsEdit(true);
-  };
+  }, [dispatch, isEdit, i, edited]);
 
   const handleChangeEdit = ({ target }) => setEdited(target.value);
 
   const handleCompleted = () => dispatch(complete(i));
 
-  const handleDelete = () => dispatch(remove(i));
+  const handleDelete = useCallback(() => dispatch(remove(i)), [dispatch, i]);
 
   return (
-    <li className="main">
+    <li key={todo.id} className="main">
       <Input
         type="checkbox"
         checked={todo.completed}
